@@ -1,5 +1,118 @@
-//COLORS
-$white: #FFF;
+@import 'common/core';
+@import 'single-post';
+
+html,
 body {
-	background: $white;
+  background: $white;
+  margin: 0;
+  padding: 0;
+  font: 100% $font-main;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
+h1 {
+  position: relative;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left:45px;
+
+    height: 2px;
+    width: 4em;
+
+    background-color: $color-black;
+    animation: slide-in 1s ease-in both 0.5s;
+  }
+}
+
+.child-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content-wrapper {
+  float: left;
+  width: 100%;
+}
+
+.content {
+  margin-right: 320px;
+  clear: both;
+  overflow: auto;
+  display: inline-block;
+}
+
+.sidebar {
+  position: relative;
+  width: 300px;
+  margin-left: -320px;
+  margin-top: 20px;
+  float: right;
+  overflow: hidden;
+  background: #2c3e50;
+  background: rgba(44, 62, 80, 0.4);
+  color: #eee;
+  min-height: 600px;
+}
+
+@media only screen and (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    margin-right: 0;
+  }
+  .pics-content {
+    margin: 5px;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+}
+
+
+/**
+ * Animations
+ */
+
+
+
+@keyframes slide-in {
+  0% { transform: translate3d(-180%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slide-up {
+  0% { opacity: 0; transform: translate3d(0, 100%, 0); }
+  90% { opacity: 1; }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+

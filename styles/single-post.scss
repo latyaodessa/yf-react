@@ -1,0 +1,19 @@
+.pics-content {
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.single-img {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fade-in 2s;
+  -moz-animation: fade-in 2s; /* Firefox */
+  -webkit-animation: fade-in 2s; /* Safari and Chrome */
+  -o-animation: fade-in 2s; /* Opera */
+}
+.top-text{
+  margin: 20px;
+}

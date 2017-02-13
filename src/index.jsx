@@ -4,14 +4,17 @@ import {Router, Route, Link, browserHistory} from 'react-router'
 import {AppContainer} from 'react-hot-loader'
 import {Provider} from "react-redux"
 import store from "./store"
-import App from './app.jsx'
-import SinglePost from './posts/single-post.jsx'
+import MainLayout from "./layouts/main-layout"
+import Home from './app.jsx'
+import SinglePost from './posts/single/single-post.jsx'
 
 render((
 	<Provider store={store}>
 		<Router history={browserHistory}>
-			<Route path="/" component={App}/>
-			<Route path="/post/:postId" component={SinglePost}/>
+			<Route component={MainLayout}>
+				<Route path="/" component={Home}/>
+				<Route path="/post/:postId" component={SinglePost}/>
+			</Route>
 		</Router>
 	</Provider>
 ), document.getElementById('app'))

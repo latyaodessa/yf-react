@@ -15,21 +15,31 @@ export default class SinglePost extends React.Component {
 		this.props.dispatch(fetchPostPictures(this.props.params.postId));
 	}
 
-
 	render() {
+
 		if (this.props.singlePostFethced === false) {
 			return <div></div>;
 		}
 
+		let post = this.props.singlePost.post;
+
 		return (
-			<div>
-				{renderLargePics(this.props.singlePost.post.largePics)}
+			<div className="single-post-content">
+				<div className="top-text">
+					{post.md ? <div><h1>Md: {post.md}</h1></div> : null}
+					{post.ph ? <div><h1>Ph: {post.ph}</h1></div> : null}
+					{!post.ph && !post.md ? <div><h1>Art: {post.text}</h1></div> : null}
+				</div>
+				<div className="pics-content">
+					{renderLargePics(post.largePics)}
+				</div>
 			</div>
+
 		)
 	}
 }
 
 function renderLargePics(largePics) {
-	return largePics.map(pic => <img key={pic} src={pic}/>)
+	return largePics.map(pic => <div key={pic} className="img-container"><img className="single-img"  src={pic}/></div>)
 }
 

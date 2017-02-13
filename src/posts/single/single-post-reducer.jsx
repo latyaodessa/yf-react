@@ -1,3 +1,5 @@
+import {FETCH_POSTS_FULFILLED, FETCH_POSTS_REJECTED} from "../posts-costants"
+
 export default function reducer(state =
 																{
 																	fetched: false,
@@ -6,10 +8,10 @@ export default function reducer(state =
 	, action) {
 
 	switch (action.type) {
-		case "FETCH_POSTS_REJECTED": {
+		case FETCH_POSTS_REJECTED: {
 			return {...state, fetching: false, error: action.payload}
 		}
-		case "FETCH_POSTS_FULFILLED": {
+		case FETCH_POSTS_FULFILLED: {
 			return {
 				...state,
 				fetching: false,

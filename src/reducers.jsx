@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import singlePost from "./posts/single-post-reducer"
+import singlePost from "./posts/single/single-post-reducer"
 export default combineReducers({
 	singlePost
 })

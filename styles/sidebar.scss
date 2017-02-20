@@ -1,0 +1,49 @@
+.sidebar {
+  position: relative;
+  width: 300px;
+  margin-left: -320px;
+  margin-top: 41px;
+  float: right;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  display: inline-flex;
+  height: 150px;
+}
+
+.sidebar-header-text {
+  margin-top: 20px;
+  position: absolute;
+  margin-left: 145px;
+}
+
+.avatar {
+  width: 50%;
+  height: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    margin-right: 0;
+  }
+  .pics-content {
+    margin: 5px;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+}
+

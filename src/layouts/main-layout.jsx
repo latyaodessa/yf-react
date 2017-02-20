@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router'
-import Header from "../core/header"
-import Footer from "../core/footer"
+import Header from '../core/header'
+import Footer from '../core/footer'
+import Sidebar from '../core/sidebar'
 
 export default class MainLayout extends React.Component {
 	render() {
@@ -15,10 +16,7 @@ export default class MainLayout extends React.Component {
 								{this.props.children}
 							</div>
 						</div>
-						<div className="sidebar">
-							<h2>Page sidebar</h2>
-							<p>&larr; Fixed Width &rarr;</p>
-						</div>
+						<Sidebar/>
 					</div>
 				</div>
 				<Footer />

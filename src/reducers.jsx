@@ -1,5 +1,10 @@
-import {combineReducers} from "redux";
-import singlePost from "./posts/single/single-post-reducer"
+import {combineReducers} from "redux"
+import native from './posts/native-post-reducer'
+import sets from './posts/sets-post-reducer'
+import single from './posts/single/single-post-reducer'
+
 export default combineReducers({
-	singlePost
+	native,
+	sets,
+	single
 })

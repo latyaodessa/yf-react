@@ -1,4 +1,4 @@
-import {FETCH_SINGLE_POST_FULFILLED, FETCH_SINGLE_POST_REJECTED} from "../posts-constants"
+import {FETCH_SETS_POSTS_FULFILLED, FETCH_SETS_POSTS_REJECTED} from "../posts/posts-constants"
 
 export default function reducer(state =
 																{
@@ -8,10 +8,10 @@ export default function reducer(state =
 	, action) {
 
 	switch (action.type) {
-		case FETCH_SINGLE_POST_REJECTED: {
+		case FETCH_SETS_POSTS_REJECTED: {
 			return {...state, fetching: false, error: action.payload}
 		}
-		case FETCH_SINGLE_POST_FULFILLED: {
+		case FETCH_SETS_POSTS_FULFILLED: {
 			return {
 				...state,
 				fetching: false,

@@ -4,8 +4,8 @@ import {fetchPostPictures} from "./single-post-actions"
 
 @connect((store) => {
 	return {
-		singlePost: store.singlePost,
-		singlePostFethced: store.singlePost.fetched
+		singlePost: store.single,
+		singlePostFethced: store.single.fetched
 
 	}
 })
@@ -13,10 +13,10 @@ export default class SinglePost extends React.Component {
 
 	componentWillMount() {
 		this.props.dispatch(fetchPostPictures(this.props.params.postId));
+		window.scrollTo(0, 0);
 	}
 
 	render() {
-
 		if (this.props.singlePostFethced === false) {
 			return <div></div>;
 		}
@@ -26,9 +26,9 @@ export default class SinglePost extends React.Component {
 		return (
 			<div className="single-post-content">
 				<div className="top-text">
-					{post.md ? <div><h1>Md: {post.md}</h1></div> : null}
-					{post.ph ? <div><h1>Ph: {post.ph}</h1></div> : null}
-					{!post.ph && !post.md ? <div><h1>Art: {post.text}</h1></div> : null}
+					{post.md ? <ul className="ph"><li>{post.md}</li></ul> : null}
+					{post.ph ? <ul className="md"><li>{post.ph}</li></ul> : null}
+					{!post.ph && !post.md ? <ul className="art"><li>Art: {post.text}</li></ul> : null}
 				</div>
 				<div className="pics-content">
 					{renderLargePics(post.largePics)}

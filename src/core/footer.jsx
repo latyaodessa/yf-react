@@ -8,9 +8,6 @@ const Footer = () => {
 			<li>
 				<IndexLink to="/" activeClassName="active">Home</IndexLink>
 			</li>
-			<li>
-				<Link to="/cats" activeClassName="active">Cats</Link>
-			</li>
 		</ul>
 	);
 };

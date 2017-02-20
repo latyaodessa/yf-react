@@ -5,7 +5,7 @@ import {AppContainer} from 'react-hot-loader'
 import {Provider} from "react-redux"
 import store from "./store"
 import MainLayout from "./layouts/main-layout"
-import Home from './app.jsx'
+import Home from './main/home.jsx'
 import SinglePost from './posts/single/single-post.jsx'
 
 render((

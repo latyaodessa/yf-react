@@ -11,7 +11,6 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-
   -webkit-flex-flow: row wrap;
   justify-content: flex-start;
 }
@@ -27,33 +26,92 @@
   background: darken($brown, 5%);
 }
 
-@media all and (max-width: 800px) {
-  .navigation {
-    justify-content: space-around;
+///////// MENU TEST
+.hamburger {
+  background-color:transparent;
+  border:0px;
+  outline:0px;
+  width:50px;
+  height:50px;
+  height:auto;
+  position: fixed;
+  top:15px;
+  right:15px;
+  cursor:pointer;
+  z-index:9999;
+  .burger {
+    transition:all 0.3s;
+    border-radius:5px;
+    height:5px;
+    width:100%;
+    display:inline-block;
+    background-color: $color-dark-grey;
+  }
+}
+.focus {
+  .burger {
+    transition:all 0.3s;
+    &:first-of-type {
+      background-color:$color-red;
+      transition-delay:0.4s;
+      transform: translate3d(0px, 0px, 0px) rotateZ(45deg);
+      width:40px;
+      transform-origin:left top;
+    }
+    &:nth-of-type(2) {
+      opacity:0;
+    }
+    &:last-of-type {
+      background-color:$color-red;
+      transition-delay:0.4s;
+      transform: translate3d(0px, 0px, 0px) rotateZ(-45deg);
+      width:40px;
+      transform-origin:left bottom;
+    }
   }
 }
 
-@media all and (max-width: 600px) {
-  .navigation {
-    -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
+
+///////// MENU TEST TOGGLE
+
+
+.b-a-expanded {
+  transition: all .25s;
+  top: -0px;
+}
+.menu-expanded {
+  position: fixed;
+  transition: all .25s;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 0px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.85);
+  ul {
     padding: 0;
+    list-style-type: none;
+    transition: all 0s;
+    position: relative;
+    left: 0;
+    z-index: 2;
   }
-
-  .navigation a {
-    text-align: center;
-    padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-  }
-
-
-  .navigation li:last-of-type a {
-    border-bottom: none;
+  a {
+    transition: all .15s;
+    text-decoration: none;
+    font-size: 2em;
+    padding: 5px;
+    color: $white;
+    display: block;
+    &:hover {
+      background-color: rgba($white, .8);
+      transition: all .15s;
+      letter-spacing: 2px;
+      color: #333;
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
   }
 }
-
-.menu-toggle {
-  display: none;
-}
-

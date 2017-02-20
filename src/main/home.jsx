@@ -28,6 +28,7 @@ export default class Home extends React.Component {
 	componentWillMount() {
 		this.props.dispatch(fetchNativePosts(this.from_native, this.to_native));
 		this.props.dispatch(fetchSetsPosts(this.from_sets, this.to_sets));
+		window.scrollTo(0, 0);
 	}
 
 	fetchMorePosts(type) {
@@ -74,7 +75,7 @@ export default class Home extends React.Component {
 }
 
 function renderPics(posts) {
-	return posts.map(post => <div key={post.id} className="pure-u-1 pure-u-md-1-3 grig-img-container hovereffect">
+	return posts.map(post => <div key={post.id} className="pure-u-1-2 pure-u-sm-1-2 pure-u-md-1-3 grig-img-container hovereffect">
 		<img className="grig-img" src={post.thumbnail}/>
 		<Link to={ 'post/' + post.id }>
 			<div className="overlay">

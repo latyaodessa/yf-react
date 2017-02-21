@@ -4,7 +4,7 @@ import Header from '../components/core/header'
 import Footer from '../components/core/footer'
 import Sidebar from '../components/core/sidebar'
 
-export default class MainLayout extends React.Component {
+export default class MainLayoutWithoutSidebar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -30,16 +30,7 @@ export default class MainLayout extends React.Component {
 		return (
 			<div>
 				<Header width={this.state.width} mobileViewSize={this.state.mobileViewSize}/>
-				<div className="child-container">
-					<div className="wrapper">
-						<div className="content-wrapper">
-							<div className="content">
-								{this.props.children}
-							</div>
-						</div>
-						<Sidebar width={this.state.width} mobileViewSize={this.state.mobileViewSize}/>
-					</div>
-				</div>
+						{this.props.children}
 				<Footer />
 			</div>
 		)

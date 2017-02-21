@@ -1,4 +1,4 @@
-import {FETCH_SETS_POSTS_FULFILLED, FETCH_SETS_POSTS_REJECTED} from "../posts/posts-constants"
+import {FETCH_SETS_POSTS_FULFILLED, FETCH_SETS_POSTS_REJECTED} from "../../constants/post/posts-constants"
 
 export default function reducer(state =
 																{

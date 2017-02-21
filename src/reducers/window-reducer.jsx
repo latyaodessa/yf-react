@@ -1,5 +1,3 @@
-import {FETCH_SINGLE_POST_FULFILLED, FETCH_SINGLE_POST_REJECTED} from "../posts-constants"
-
 export default function reducer(state =
 																{
 																	fetched: false,
@@ -8,14 +6,10 @@ export default function reducer(state =
 	, action) {
 
 	switch (action.type) {
-		case FETCH_SINGLE_POST_REJECTED: {
-			return {...state, fetching: false, error: action.payload}
-		}
-		case FETCH_SINGLE_POST_FULFILLED: {
+		case 'RESIZE': {
 			return {
 				...state,
-				fetching: false,
-				fetched: true,
+				mobile: 850,
 				post: action.payload
 			}
 		}

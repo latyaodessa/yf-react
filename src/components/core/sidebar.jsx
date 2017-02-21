@@ -1,8 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router'
+import {connect} from 'react-redux'
+import {resizeWindow} from '../../actions/winow-actions'
 
 
+@connect((store) => {
+	return {
+		test: store.window
+	}
+})
 export default class Sidebar extends React.Component {
+
+
 
 	getSideBar() {
 		return <div className="sidebar">
@@ -22,6 +31,7 @@ export default class Sidebar extends React.Component {
 	}
 
 	render() {
+		console.log('AAAA', this.props);
 		var sidebar = this.props.width > this.props.mobileViewSize ? this.getSideBar() : '';
 
 		return (

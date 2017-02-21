@@ -1,7 +1,6 @@
 import React from 'react'
-import {Link, IndexLink} from 'react-router'
-import MobileMenu from '../core/mobile-menu'
-import MainMenu from '../core/main-menu'
+import MobileMenu from './mobile-menu'
+import MainMenu from './main-menu'
 
 
 export default class Header extends React.Component {

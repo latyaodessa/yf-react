@@ -5,14 +5,17 @@ import {AppContainer} from 'react-hot-loader'
 import {Provider} from "react-redux"
 import store from "./store"
 import MainLayout from "./layouts/main-layout"
-import Home from './main/home.jsx'
-import SinglePost from './posts/single/single-post.jsx'
+import MainLayoutWithoutSidebar from './layouts/main-layout-without-sidebar'
+import Home from './components/main/home.jsx'
+import SinglePost from './components/posts/single/single-post.jsx'
 
 render((
 	<Provider store={store}>
 		<Router history={browserHistory}>
-			<Route component={MainLayout}>
+			<Route component={MainLayoutWithoutSidebar}>
 				<Route path="/" component={Home}/>
+			</Route>
+			<Route component={MainLayout}>
 				<Route path="/post/:postId" component={SinglePost}/>
 			</Route>
 		</Router>

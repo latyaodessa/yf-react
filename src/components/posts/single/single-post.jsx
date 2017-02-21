@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchPostPictures} from "./single-post-actions"
+import {fetchPostPictures} from "../../../actions/post/single-post-actions"
 
 @connect((store) => {
 	return {

@@ -8,6 +8,9 @@ export default class MainMenu extends React.Component {
 				<li>
 					<IndexLink to="/" activeClassName="active">Home</IndexLink>
 				</li>
+				<li>
+					<Link to="/login">Login</Link>
+				</li>
 			</ul>
 		);
 	}

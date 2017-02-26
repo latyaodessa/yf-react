@@ -29,22 +29,27 @@ export default class Slider extends React.Component {
 
 		const params = {
 			pagination: '.swiper-pagination',
-			slidesPerView: 4,
-			centeredSlides: true,
 			paginationClickable: true,
-			spaceBetween: 30,
-			grabCursor: true,
-			mousewheelControl: true
+			spaceBetween: 30
+			// mousewheelControl: true
 		};
 
 		return (<Swiper {...params}>
-			{this.getTopSetsSlides(this.props.topSets)}
-		</Swiper>
+				{/*{this.getTopSetsSlides(this.props.topSets)}*/}
+				<div><img src="https://pp.vk.me/c837734/v837734104/20526/IaIDZCocetM.jpg"></img></div>
+				<div><img src="https://pp.vk.me/c837435/v837435893/24b7d/WKJi7mHKLLc.jpg"></img></div>
+				<div><img src="https://pp.vk.me/c837734/v837734104/20526/IaIDZCocetM.jpg"></img></div>
+				<div><img src="https://pp.vk.me/c837435/v837435893/24b7d/WKJi7mHKLLc.jpg"></img></div>
+				<div><img src="https://pp.vk.me/c837734/v837734104/20526/IaIDZCocetM.jpg"></img></div>
+				<div><img src="https://pp.vk.me/c837435/v837435893/24b7d/WKJi7mHKLLc.jpg"></img></div>
+
+			</Swiper>
 		);
 	}
 
-	getTopSetsSlides(posts){
-		return posts.map(post => <div className="grig-img-container" key={post.id}><img className="grig-img" src={post.thumbnail}/></div>)
+	getTopSetsSlides(posts) {
+		return posts.map(post => <div className="grig-img-container" key={post.id}><img className="grig-img"
+																																										src={post.thumbnail}/></div>)
 	}
 
 }

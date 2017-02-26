@@ -33,7 +33,11 @@ export default class MobileMenu extends React.Component {
 		return <div className="menu-expanded">
 			<nav>
 				<ul>
-					<li onClick={this.changeToggleState.bind(this)}><IndexLink to="/" activeClassName="active">Home</IndexLink>
+					<li onClick={this.changeToggleState.bind(this)}>
+						<IndexLink to="/" activeClassName="active">Home</IndexLink>
+					</li>
+					<li onClick={this.changeToggleState.bind(this)}>
+						<Link to="login">Login</Link>
 					</li>
 				</ul>
 			</nav>

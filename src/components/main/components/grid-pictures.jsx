@@ -36,7 +36,7 @@ export default class Grid extends React.Component {
 		 return posts.map(post => <div key={post.id}
 																	 className="pure-u-1-2 pure-u-sm-1-2 pure-u-md-1-3 grig-img-container hovereffect">
 			 <img className="grig-img" src={post.thumbnail}/>
-			 <Link to={ 'post/' + post.id }>
+			 <Link to={ '/post/' + post.id }>
 				 <div className="overlay">
 					 <div className="ul-main-list">
 						 {post.md ? <ul className="md-white">

@@ -30,7 +30,15 @@ export default class MainLayoutWithoutSidebar extends React.Component {
 		return (
 			<div>
 				<Header width={this.state.width} mobileViewSize={this.state.mobileViewSize}/>
-						{this.props.children}
+				<div className="child-container">
+					<div className="wrapper">
+						<div className="content-wrapper">
+							<div className="content">
+								{this.props.children}
+							</div>
+						</div>
+					</div>
+				</div>
 				<Footer />
 			</div>
 		)

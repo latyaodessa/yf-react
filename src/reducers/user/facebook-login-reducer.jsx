@@ -2,6 +2,8 @@ import {CREATE_FACEBOOK_USER_FULFILLED, CREATE_FACEBOOK_USER_REJECTED} from "../
 
 export default function reducer(state =
 																{
+																	user: null,
+																	fetching: null,
 																	fetched: false,
 																	error: null
 																}
@@ -16,7 +18,7 @@ export default function reducer(state =
 				...state,
 				fetching: false,
 				fetched: true,
-				fb_user: action.payload
+				user: action.payload
 			}
 		}
 		default: {

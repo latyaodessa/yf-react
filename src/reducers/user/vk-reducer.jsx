@@ -1,19 +1,19 @@
-import {GET_USER_FULFILLED, GET_USER_REJECTED} from "../../constants/user/user-constants"
+import {CREATE_VK_USER_FULFILLED, CREATE_VK_USER_REJECTED} from "../../constants/user/user-constants"
 
 export default function reducer(state =
 																{
-																	user:null,
-																	fetching:false,
+																	user: null,
+																	fetching: null,
 																	fetched: false,
 																	error: null
 																}
 	, action) {
 
 	switch (action.type) {
-		case GET_USER_REJECTED: {
+		case CREATE_VK_USER_REJECTED: {
 			return {...state, fetching: false, error: action.payload}
 		}
-		case GET_USER_FULFILLED: {
+		case CREATE_VK_USER_FULFILLED: {
 			return {
 				...state,
 				fetching: false,

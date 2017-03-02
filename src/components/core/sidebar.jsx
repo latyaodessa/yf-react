@@ -6,14 +6,26 @@ import {resizeWindow} from '../../actions/winow-actions'
 
 @connect((store) => {
 	return {
-		test: store.window
+		loginLogout: store.loginLogout
 	}
 })
 export default class Sidebar extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			isUserLoggedIn : localStorage.getItem('user_id') ? true : false
+		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.loginLogout.executed){
+			this.state = {
+				isUserLoggedIn : nextProps.loginLogout.isLogin ? true : false
+			};
+		}
+	}
 	getUserThumbnail(){
-		console.log('AAAA', this.props);
-		console.log(localStorage.getItem('user_thumbnail'));
 		return localStorage.getItem('user_thumbnail');
 	}
 

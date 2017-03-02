@@ -6,6 +6,7 @@ import {Provider} from "react-redux"
 import store from "./store"
 import MainLayout from "./layouts/main-layout"
 import MainLayoutWithoutSidebar from './layouts/main-layout-without-sidebar'
+import UserDashboardLayoutWithoutSidebar from './layouts/user-dashboard-layout'
 import Home from './components/main/home.jsx'
 import SinglePost from './components/posts/single/single-post.jsx'
 import Login from './components/user/login/login'
@@ -16,6 +17,8 @@ render((
 		<Router history={browserHistory}>
 			<Route component={MainLayoutWithoutSidebar}>
 				<Route path="/login" component={Login}/>
+			</Route>
+			<Route component={UserDashboardLayoutWithoutSidebar}>
 				<Route path="/dashboard" component={UserDashboard}/>
 			</Route>
 			<Route component={MainLayout}>

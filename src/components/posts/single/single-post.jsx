@@ -1,45 +1,36 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchPostPictures} from "../../../actions/post/single-post-actions"
+import PicsRenderer from "./components/pics-renderer-component"
+import Header from "./components/header-component"
 
 @connect((store) => {
 	return {
-		singlePost: store.single,
+		post: store.single.post,
 		singlePostFethced: store.single.fetched
-
 	}
 })
 export default class SinglePost extends React.Component {
 
-	componentWillMount() {
+	constructor(props) {
+		super(props);
 		this.props.dispatch(fetchPostPictures(this.props.params.postId));
 		window.scrollTo(0, 0);
 	}
 
 	render() {
-		if (this.props.singlePostFethced === false) {
-			return <div></div>;
-		}
-
-		let post = this.props.singlePost.post;
-
 		return (
-			<div className="single-post-content">
-				<div className="top-text">
-					{post.md ? <ul className="ph"><li>{post.md}</li></ul> : null}
-					{post.ph ? <ul className="md"><li>{post.ph}</li></ul> : null}
-					{!post.ph && !post.md ? <ul className="art"><li>Art: {post.text}</li></ul> : null}
-				</div>
-				<div className="pics-content">
-					{renderLargePics(post.largePics)}
-				</div>
+			<div>
+				{this.props.singlePostFethced ?
+					<div className="single-post-content">
+						<Header post={this.props.post}/>
+						<PicsRenderer largePics={this.props.post.largePics}/>
+					</div>
+					: null}
 			</div>
-
 		)
 	}
 }
 
-function renderLargePics(largePics) {
-	return largePics.map(pic => <div key={pic} className="img-container"><img className="single-img"  src={pic}/></div>)
-}
+
 

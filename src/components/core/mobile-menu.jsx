@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, IndexLink} from 'react-router'
+import LoginLogoutButton from '../core/menu-components/login-logout-button'
 
 
 export default class MobileMenu extends React.Component {
@@ -23,9 +24,9 @@ export default class MobileMenu extends React.Component {
 
 	getButton() {
 		return <button onClick={this.changeToggleState.bind(this)} className={this.state.toggle}>
-			<span className="burger"></span>
-			<span className="burger"></span>
-			<span className="burger"></span>
+			<span className="burger"/>
+			<span className="burger"/>
+			<span className="burger"/>
 		</button>
 	}
 
@@ -37,7 +38,17 @@ export default class MobileMenu extends React.Component {
 						<IndexLink to="/" activeClassName="active">Home</IndexLink>
 					</li>
 					<li onClick={this.changeToggleState.bind(this)}>
-						<Link to="login">Login</Link>
+						<Link to="/native" activeClassName="active">Наши</Link>
+					</li>
+					<li onClick={this.changeToggleState.bind(this)}>
+						<Link to="/sets" activeClassName="active">Зарубежные</Link>
+					</li>
+					<li onClick={this.changeToggleState.bind(this)}>
+						<Link to="/art" activeClassName="active">Art</Link>
+					</li>
+					<li onClick={this.changeToggleState.bind(this)}>
+						<LoginLogoutButton/>
+						{/*<Link to="login">Login</Link>*/}
 					</li>
 				</ul>
 			</nav>

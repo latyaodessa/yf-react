@@ -11,14 +11,15 @@ export default class MainLayoutWithoutSidebar extends React.Component {
 			width: window.innerWidth,
 			mobileViewSize: 850
 		};
+		this.updateDimensions = this.updateDimensions.bind(this);
 
 	}
 	componentDidMount() {
-		window.addEventListener("resize", this.updateDimensions.bind(this));
+		window.addEventListener("resize", this.updateDimensions);
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener("resize", this.updateDimensions.bind(this));
+		window.removeEventListener("resize", this.updateDimensions);
 	}
 
 	updateDimensions(){

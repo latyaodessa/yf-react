@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router'
-import Header from '../components/core/header'
-import Footer from '../components/core/footer'
-import Sidebar from '../components/core/sidebar'
+import Header from '../../components/core/header'
+import Footer from '../../components/core/footer'
+import Sidebar from '../../components/core/sidebar'
 
-export default class MainLayout extends React.Component {
+export default class SetsListLayout extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -12,7 +12,6 @@ export default class MainLayout extends React.Component {
 			mobileViewSize: 850,
 		};
 		this.updateDimensions = this.updateDimensions.bind(this);
-
 	}
 	componentDidMount() {
 		window.addEventListener("resize", this.updateDimensions);

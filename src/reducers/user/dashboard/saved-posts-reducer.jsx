@@ -1,23 +1,24 @@
-import {FETCH_NATIVE_POSTS_FULFILLED, FETCH_NATIVE_POSTS_REJECTED} from "../../constants/post/posts-constants"
+import {GET_SAVED_POSTS_FULFILLED, GET_SAVED_POSTS_REJECTED} from "../../../constants/user/user-constants"
 
 export default function reducer(state =
 																{
+																	savedPosts: null,
+																	fetching: null,
 																	fetched: false,
-																	error: null,
-																	fetching: true
+																	error: null
 																}
 	, action) {
 
 	switch (action.type) {
-		case FETCH_NATIVE_POSTS_REJECTED: {
+		case GET_SAVED_POSTS_REJECTED: {
 			return {...state, fetching: false, error: action.payload}
 		}
-		case FETCH_NATIVE_POSTS_FULFILLED: {
+		case GET_SAVED_POSTS_FULFILLED: {
 			return {
 				...state,
 				fetching: false,
 				fetched: true,
-				post: action.payload
+				savedPosts: action.payload
 			}
 		}
 		default: {

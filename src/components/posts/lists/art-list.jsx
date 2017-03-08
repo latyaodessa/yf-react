@@ -1,36 +1,37 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router'
-import {getSavedPosts} from '../../../actions/user/dashboard-actions';
-import LoadMoreImg from '../../../res/img/64/load-more.png';
+import {Link} from 'react-router';
+import {fetchArtPosts} from '../../../actions/post/post-actions';
+import Loader from '../../core/loader';
 
 @connect((store) => {
 	return {
-		savedPosts: store.savedPosts.savedPosts,
-		savedPostsFetched: store.savedPosts.fetched}
+		artPosts: store.art.post,
+		fetched: store.art.fetched,
+		fetching: store.art.fetching
+	}
 })
-export default class UserDashboard extends React.Component {
-
+export default class ArtList extends React.Component {
 	state = {
 		incrementSize: 12,
 		initSizePhoto: 0,
-		currentPhotosLoaded:12,
-		userId: localStorage.getItem("user_id"),
+		currentPhotosLoaded: 12,
 		visibleHeight: document.documentElement.clientHeight,
 		pageHeight: document.documentElement.scrollHeight,
 		currentScroll: document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop
-	};
+	}
 
 	constructor(props) {
 		super(props);
-		this.props.dispatch(getSavedPosts(this.state.userId, this.state.initSizePhoto, this.state.incrementSize));
+		this.props.dispatch(fetchArtPosts(this.state.initSizePhoto, this.state.incrementSize));
 		this.updateScroll = this.updateScroll.bind(this);
 	}
 
 	componentDidMount() {
 		window.addEventListener("scroll", this.updateScroll);
 	}
-	componentWillUnmount(){
+
+	componentWillUnmount() {
 		window.removeEventListener("scroll", this.updateScroll);
 	}
 
@@ -40,29 +41,30 @@ export default class UserDashboard extends React.Component {
 			pageHeight: document.documentElement.scrollHeight,
 			currentScroll: document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop
 		})
-		if(this.isLoadMore()){
+		if (this.isLoadMore()) {
 			this.fetchMorePhotos();
 		}
 	}
 
 	fetchMorePhotos() {
-		let currentPhotoSize = this.state.currentPhotosLoaded+=this.state.incrementSize;
+		let currentPhotoSize = this.state.currentPhotosLoaded += this.state.incrementSize;
 		this.setState({
 			currentPhotosLoaded: currentPhotoSize
 		})
-		this.props.dispatch(getSavedPosts(this.state.userId, this.state.initSizePhoto, currentPhotoSize));
+		this.props.dispatch(fetchArtPosts(this.state.initSizePhoto, currentPhotoSize));
 	}
 
-	isLoadMore(){
-		if(this.state.currentScroll>= this.state.pageHeight - this.state.visibleHeight){
+	isLoadMore() {
+		if (this.state.currentScroll >= this.state.pageHeight - this.state.visibleHeight) {
 			return true;
 		}
 	}
+
 	renderPics(posts) {
 		return posts.map(post => <div key={post.id}
 																	className="pure-u-1-2 pure-u-sm-1-2 pure-u-md-1-3 grig-img-container hovereffect">
 			<img className="grig-img" src={post.thumbnail}/>
-			<Link to={ 'post/' + post.post_id }>
+			<Link to={ 'post/' + post.id }>
 				<div className="overlay">
 					<div className="ul-main-list">
 						{post.md ? <ul className="md-white">
@@ -79,30 +81,14 @@ export default class UserDashboard extends React.Component {
 
 	render() {
 		return (
-			<div className="dashboard-container">
-				<div className="dashboard-header">
-					<div className="pure-g">
-						<div className="pure-u-1 pure-u-md-1-2">
-							<div className="inner-container">
-								<img src={localStorage.getItem('user_thumbnail')}/>
-							</div>
-						</div>
-						<div className="pure-u-1 pure-u-md-1-2">
-							<div className="inner-container">
-								bbb
-							</div>
-						</div>
-					</div>
+			<div>
+				<div className="grid-list-container">
+					{this.props.fetched ? <div className="pure-g">{this.renderPics(this.props.artPosts)}</div> : null}
 				</div>
-				{this.props.savedPostsFetched ? <div className="pure-g">{this.renderPics(this.props.savedPosts)}</div> : null}
-
-				{this.isLoadMore.bind(this)}
-
-				<div className="under-button">
-					<a onClick={this.fetchMorePhotos.bind(this)}> <img src={LoadMoreImg}/></a>
-				</div>
-
+				{this.props.fetching ? <Loader/> : null}
 			</div>
 		)
 	}
 }
+
+

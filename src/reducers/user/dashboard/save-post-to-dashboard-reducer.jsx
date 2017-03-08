@@ -1,23 +1,24 @@
-import {FETCH_NATIVE_POSTS_FULFILLED, FETCH_NATIVE_POSTS_REJECTED} from "../../constants/post/posts-constants"
+import {SAVE_POST_TO_DASHBOARD_REJECTED, SAVE_POST_TO_DASHBOARD_FULFILLED} from "../../../constants/user/user-constants"
 
 export default function reducer(state =
 																{
+																	saved: null,
+																	fetching: null,
 																	fetched: false,
-																	error: null,
-																	fetching: true
+																	error: null
 																}
 	, action) {
 
 	switch (action.type) {
-		case FETCH_NATIVE_POSTS_REJECTED: {
+		case SAVE_POST_TO_DASHBOARD_REJECTED: {
 			return {...state, fetching: false, error: action.payload}
 		}
-		case FETCH_NATIVE_POSTS_FULFILLED: {
+		case SAVE_POST_TO_DASHBOARD_FULFILLED: {
 			return {
 				...state,
 				fetching: false,
 				fetched: true,
-				post: action.payload
+				saved: action.payload
 			}
 		}
 		default: {

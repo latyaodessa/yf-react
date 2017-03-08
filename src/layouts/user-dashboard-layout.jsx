@@ -10,14 +10,15 @@ export default class UserDashboardLayoutWithoutSidebar extends React.Component {
 			width: window.innerWidth,
 			mobileViewSize: 850
 		};
+		this.updateDimensions = this.updateDimensions.bind(this);
 
 	}
 	componentDidMount() {
-		window.addEventListener("resize", this.updateDimensions.bind(this));
+		window.addEventListener("resize", this.updateDimensions);
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener("resize", this.updateDimensions.bind(this));
+		window.removeEventListener("resize", this.updateDimensions);
 	}
 
 	updateDimensions(){
@@ -29,7 +30,7 @@ export default class UserDashboardLayoutWithoutSidebar extends React.Component {
 		return (
 			<div>
 				<Header width={this.state.width} mobileViewSize={this.state.mobileViewSize}/>
-				<div className="child-container">
+				<div className="child-container-dashboard">
 								{this.props.children}
 							</div>
 				<Footer />

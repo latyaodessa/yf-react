@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '../main/components/grid-pictures'
+import Grid from '../home/components/grid-pictures'
 
 export default class Home extends React.Component {
 

@@ -9,9 +9,16 @@ export default class MainMenu extends React.Component {
 				<li>
 					<IndexLink to="/" activeClassName="active">Home</IndexLink>
 				</li>
-				{/*<li>*/}
+				<li>
+					<Link to="/native" activeClassName="active">Наши</Link>
+				</li>
+				<li>
+					<Link to="/sets" activeClassName="active">Зарубежные</Link>
+				</li>
+				<li>
+					<Link to="/art" activeClassName="active">Art</Link>
+				</li>
 					<LoginLogoutButton />
-				{/*</li>*/}
 			</ul>
 		);
 	}

@@ -13,7 +13,7 @@ export default class SavePostButton extends React.Component {
 
 	render() {
 		return (
-			<div className="icon">
+			<div className="save-button-icon">
 				<img src={SavePostIcon} onClick={this.savePost.bind(this)}/>
 			</div>
 		)

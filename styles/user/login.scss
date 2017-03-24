@@ -1,5 +1,6 @@
 $vk-background: #466991;
 $fb-background: #3b5998;
+$yf-background: #775e55;
 
 $speed: "0.25s";
 $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
@@ -54,6 +55,10 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
   }
   &.fb {
     background-color: $fb-background;
+  }
+  &.yf {
+    background-color: $yf-background;
+    letter-spacing: 0.3em;
   }
 
   span,

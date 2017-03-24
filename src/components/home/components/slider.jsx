@@ -25,8 +25,6 @@ export default class Slider extends React.Component {
 			return <div></div>;
 		}
 
-		console.log(this.props.topSets.post);
-
 		const params = {
 			pagination: '.swiper-pagination',
 			paginationClickable: true,

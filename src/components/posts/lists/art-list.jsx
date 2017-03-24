@@ -25,6 +25,7 @@ export default class ArtList extends React.Component {
 		super(props);
 		this.props.dispatch(fetchArtPosts(this.state.initSizePhoto, this.state.incrementSize));
 		this.updateScroll = this.updateScroll.bind(this);
+		document.title = "Young Folks - Art";
 	}
 
 	componentDidMount() {
@@ -60,6 +61,10 @@ export default class ArtList extends React.Component {
 		}
 	}
 
+	regexCleaner(text){
+		return text.replace(/#.*s/,'').replace(/\[.*\|/,'').replace(/]/,'').replace(/http.*/,'');
+	}
+
 	renderPics(posts) {
 		return posts.map(post => <div key={post.id}
 																	className="pure-u-1-2 pure-u-sm-1-2 pure-u-md-1-3 grig-img-container hovereffect">
@@ -72,6 +77,9 @@ export default class ArtList extends React.Component {
 						</ul> : null}
 						{post.ph ? <ul className="ph-white">
 							<li>{post.ph}</li>
+						</ul> : null}
+						{!post.ph && !post.md ? <ul className="md-white">
+							<li>{this.regexCleaner(post.text)}</li>
 						</ul> : null}
 					</div>
 				</div>

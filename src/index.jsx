@@ -9,6 +9,7 @@ import NativeListLayout from "./layouts/lists/native-list-layout"
 import SetsListLayout from "./layouts/lists/sets-list-layout"
 import ArtListLayout from "./layouts/lists/art-list-layout"
 import MainLayoutWithoutSidebar from './layouts/main-layout-without-sidebar'
+import HomeLayoutWithoutSidebar from './layouts/home-layout-without-sidebar'
 import UserDashboardLayoutWithoutSidebar from './layouts/user-dashboard-layout'
 import Home from './components/home/home.jsx'
 import SinglePost from './components/posts/single/single-post.jsx'
@@ -17,12 +18,18 @@ import UserDashboard from './components/user/dashboard/user-dashboard'
 import NativeList from './components/posts/lists/native-list'
 import SetsList from './components/posts/lists/sets-list'
 import ArtList from './components/posts/lists/art-list'
+import PostSearch from './components/posts/search/post-search'
+
 
 render((
 	<Provider store={store}>
 		<Router history={browserHistory}>
+			<Route component={HomeLayoutWithoutSidebar}>
+				<Route path="/" component={Home}/>
+			</Route>
 			<Route component={MainLayoutWithoutSidebar}>
 				<Route path="/login" component={Login}/>
+				<Route path="/search" component={PostSearch}/>
 			</Route>
 			<Route component={UserDashboardLayoutWithoutSidebar}>
 				<Route path="/dashboard" component={UserDashboard}/>
@@ -37,7 +44,6 @@ render((
 				<Route path="/art" component={ArtList}/>
 			</Route>
 			<Route component={MainLayout}>
-				<Route path="/" component={Home}/>
 				<Route path="/post/:postId" component={SinglePost}/>
 			</Route>
 		</Router>

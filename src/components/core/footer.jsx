@@ -6,7 +6,7 @@ const Footer = () => {
 	return (
 		<ul className="navigation">
 			<li>
-				<IndexLink to="/" activeClassName="active">Home</IndexLink>
+				<IndexLink to="/" activeClassName="active">Главная</IndexLink>
 			</li>
 		</ul>
 	);

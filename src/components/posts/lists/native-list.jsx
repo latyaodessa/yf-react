@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {fetchNativePosts} from '../../../actions/post/post-actions';
 import Loader from '../../core/loader';
+import DocumentMeta from 'react-document-meta';
+
 
 @connect((store) => {
 	return {
@@ -25,6 +27,7 @@ export default class NativeList extends React.Component {
 		super(props);
 		this.props.dispatch(fetchNativePosts(this.state.initSizePhoto, this.state.incrementSize));
 		this.updateScroll = this.updateScroll.bind(this);
+
 	}
 
 	componentDidMount() {
@@ -79,10 +82,22 @@ export default class NativeList extends React.Component {
 		</div>)
 	}
 
+
 	render() {
-		console.log(this.props);
+		const meta = {
+			title: "Young Folks - Модели с Украины России и других стран СНГ",
+			description: "Young Folks - Модели с Украины России и других стран СНГ. Модельное Агенство для начинающих истории работа",
+			canonical: "http://youngfolks.ru/native",
+			meta: {
+				charset: 'utf-8',
+				name: {
+					keywords: "Модели, модельное агентсво, young folks, модели и фотогафы из России Украины СНГ"
+				}
+			}
+		};
 		return (
 			<div>
+				<DocumentMeta {...meta} />
 				<div className="grid-list-container">
 					{this.props.fetched ? <div className="pure-g">{this.renderPics(this.props.nativePosts)}</div> : null}
 				</div>

@@ -29,7 +29,7 @@ export default class LoginLogoutButton extends React.Component {
 	logOut() {
 		localStorage.clear();
 		this.props.dispatch(logout());
-		browserHistory.push('/')
+		browserHistory.push('/login');
 	}
 
 	render() {
@@ -45,7 +45,7 @@ export default class LoginLogoutButton extends React.Component {
 	}
 
 	getLoginButton() {
-		return <Link to="/login">Login</Link>;
+		return <Link to="/login">Войти</Link>;
 	}
 
 	getLogoutButton() {
@@ -56,7 +56,7 @@ export default class LoginLogoutButton extends React.Component {
 			</Link>
 			{ this.state.showDropDownMenu ?
 				<div id="menu">
-					<ul>
+					<ul className="submenu">
 						<li><Link to="/dashboard">Профайл</Link></li>
 						<li><a onClick={this.logOut.bind(this)}>Выйти</a></li>
 					</ul>

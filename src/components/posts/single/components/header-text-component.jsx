@@ -1,6 +1,9 @@
 import React from 'react'
 
 export default class HeaderText extends React.Component {
+	regexCleaner(text){
+		return text.replace(/#.*s/,'').replace(/\[.*\|/,'').replace(/]/,'').replace(/http.*/,'');
+	}
 	render() {
 		return (
 			<div className="top-text">
@@ -11,7 +14,7 @@ export default class HeaderText extends React.Component {
 					<li>{this.props.post.ph}</li>
 				</ul> : null}
 				{!this.props.post.ph && !this.props.post.md ? <ul className="art">
-					<li>Art: {this.props.post.text}</li>
+					<li>{this.regexCleaner(this.props.post.text)}</li>
 				</ul> : null}
 			</div>
 		)

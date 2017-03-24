@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import Header from '../components/core/header'
 import Footer from '../components/core/footer'
-import Sidebar from '../components/core/sidebar'
+import Sidebar from '../components/core/sidebars/main-sidebar/sidebar'
 
 export default class MainLayoutWithoutSidebar extends React.Component {
 	constructor(props) {

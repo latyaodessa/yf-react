@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link, IndexLink} from 'react-router'
-import LoginLogoutButton from '../core/menu-components/login-logout-button'
+import MobileLoginLogoutButton from '../core/menu-components/login-log-out-mobile'
+import SearchIcon from '../../res/img/64/search-icon.png'
 
 
 export default class MobileMenu extends React.Component {
@@ -35,7 +36,7 @@ export default class MobileMenu extends React.Component {
 			<nav>
 				<ul>
 					<li onClick={this.changeToggleState.bind(this)}>
-						<IndexLink to="/" activeClassName="active">Home</IndexLink>
+						<IndexLink to="/" activeClassName="active">Главная</IndexLink>
 					</li>
 					<li onClick={this.changeToggleState.bind(this)}>
 						<Link to="/native" activeClassName="active">Наши</Link>
@@ -46,9 +47,13 @@ export default class MobileMenu extends React.Component {
 					<li onClick={this.changeToggleState.bind(this)}>
 						<Link to="/art" activeClassName="active">Art</Link>
 					</li>
-					<li onClick={this.changeToggleState.bind(this)}>
-						<LoginLogoutButton/>
-						{/*<Link to="login">Login</Link>*/}
+					<li>
+						<div className="search-icon">
+							<Link to="/search"> <img src={SearchIcon}/> </Link>
+						</div>
+					</li>
+					<li className="last-li" onClick={this.changeToggleState.bind(this)}>
+						<MobileLoginLogoutButton/>
 					</li>
 				</ul>
 			</nav>
